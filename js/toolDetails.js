@@ -10,6 +10,7 @@ const toolDetails = async id => {
     console.log(error);
   }
 };
+//load modal function
 const loadModal = data => {
   const modalBody = document.getElementById("modal-body");
   console.log(modalBody);

@@ -1,6 +1,15 @@
+// spinner function
+const spinner = spinnerShow => {
+  if (spinnerShow) {
+    document.getElementById("loading-spinner").classList.remove("hidden");
+  } else {
+    document.getElementById("loading-spinner").classList.add("hidden");
+  }
+};
 // load all data or six
 const loadAllTool = async showSix => {
   const url = `https://openapi.programming-hero.com/api/ai/tools`;
+  spinner(true);
   try {
     const fetchData = await fetch(url);
     const response = await fetchData.json();
