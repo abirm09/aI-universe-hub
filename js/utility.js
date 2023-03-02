@@ -1,4 +1,4 @@
-// load all data
+// load all data or six
 const loadAllTool = async showSix => {
   const url = `https://openapi.programming-hero.com/api/ai/tools`;
   try {
@@ -11,3 +11,8 @@ const loadAllTool = async showSix => {
   }
 };
 loadAllTool(true);
+//show all card
+document.getElementById("load-more-btn").addEventListener("click", () => {
+  loadAllTool(false);
+  document.getElementById("load-mode").classList.add("hidden");
+});

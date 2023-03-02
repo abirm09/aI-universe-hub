@@ -1,3 +1,4 @@
+//single tool details
 const toolDetails = async id => {
   const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
   try {
