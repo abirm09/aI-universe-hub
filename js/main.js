@@ -4,7 +4,6 @@ const createCard = (data, showSix) => {
     data = data.slice(0, 6);
   }
   data.forEach(tool => {
-    console.log(tool);
     const card = document.createElement("div");
     card.classList.add(
       "card",
@@ -36,7 +35,7 @@ const createCard = (data, showSix) => {
                     <span><i class="fa-regular fa-calendar"></i></span> <span>${tool.published_in}</span>
                 </div>
             </div>
-            <label class="btn btn-outline btn-primary rounded-full" for="showToolDetails"><i
+            <label class="btn btn-outline btn-primary rounded-full" for="showToolDetails" onclick="toolDetails('${tool.id}')"><i
                     class="fa-solid fa-arrow-right"></i></label>
         </div>
     </div>
