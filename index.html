@@ -23,14 +23,14 @@
 
 <body>
     <header>
-        <div class="container mx-auto px-5">
+        <div class="container mx-auto">
             <h2 class="text-5xl font-semibold text-center mt-5">AI Universe Hub</h2>
         </div>
     </header>
     <main>
         <!-- Card section -->
         <section>
-            <div class="container mx-auto px-5">
+            <div class="container mx-auto">
                 <!-- Sort btn starts here -->
                 <div class="mt-5" id="sort-section">
                     <div class="flex justify-center">
@@ -49,34 +49,6 @@
                 <div class="mt-5">
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 justify-center " id="tools-card">
                         <!-- cards -->
-                        <!-- card 1 -->
-                        <div class="card w-80 md:w-96 bg-base-100 shadow-xl">
-                            <figure class="px-3 pt-3">
-                                <img src="https://www.datanami.com/wp-content/uploads/2023/01/chat_gpt_shutterstock_Ebru-Omer.jpg"
-                                    alt="Shoes" class="rounded-xl" />
-                            </figure>
-                            <div class="card-body p-4">
-                                <div>
-                                    <h2 class="font-semibold text-2xl text-left">Features </h2>
-                                    <ol class="list-decimal ml-5 mt-4">
-                                        <li>lower</li>
-                                        <li>lower</li>
-                                        <li>lower</li>
-                                    </ol>
-                                </div>
-                                <hr>
-                                <div class="card-actions justify-between mt-4 items-end">
-                                    <div>
-                                        <h2 class="font-semibold text-2xl text-left">Features </h2>
-                                        <div class="mt-2">
-                                            <span><i class="fa-regular fa-calendar"></i></span> <span>Date here</span>
-                                        </div>
-                                    </div>
-                                    <button class="btn btn-outline btn-primary rounded-full"><i
-                                            class="fa-solid fa-arrow-right"></i></button>
-                                </div>
-                            </div>
-                        </div>
                         <!-- card ends here -->
                     </div>
                 </div>
@@ -91,6 +63,20 @@
             </div>
         </section>
     </main>
+    <!-- Modal -->
+
+    <!-- Put this part before tag -->
+    <input type="checkbox" id="showToolDetails" class="modal-toggle" />
+    <div class="modal">
+        <div class="modal-box w-11/12 max-w-5xl">
+            <h3 class="font-bold text-lg">Congratulations random Internet user!</h3>
+            <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!
+            </p>
+            <div class="modal-action">
+                <label for="showToolDetails" class="btn">Close</label>
+            </div>
+        </div>
+    </div>
     <!-- Js files -->
     <script src="./js/utility.js"></script>
     <script src="./js/main.js"></script>
