@@ -13,5 +13,5 @@ const toolDetails = async id => {
 //load modal function
 const loadModal = data => {
   const modalBody = document.getElementById("modal-body");
-  console.log(modalBody);
+  console.log(data);
 };
