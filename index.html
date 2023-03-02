@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/1372b1f954.js" crossorigin="anonymous"></script>
     <!-- Tailwind css -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Tailwind component -->
@@ -30,17 +32,54 @@
         <section>
             <div class="container mx-auto px-5">
                 <!-- Sort btn starts here -->
-                <div class="" id="sort-section">
+                <div class="mt-5" id="sort-section">
                     <div class="flex justify-center">
-                        <button class="btn btn-primary mt-5">Sort By Date</button>
+                        <button class="btn btn-primary ">Sort By Date</button>
                     </div>
                 </div>
                 <!-- Sort btn ends here -->
                 <!-- Card section starts here -->
-                <div>
-
+                <div class="mt-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 justify-center " id="tools-card">
+                        <!-- cards -->
+                        <!-- card 1 -->
+                        <div class="card w-80 md:w-96 bg-base-100 shadow-xl">
+                            <figure class="px-3 pt-3">
+                                <img src="https://www.datanami.com/wp-content/uploads/2023/01/chat_gpt_shutterstock_Ebru-Omer.jpg"
+                                    alt="Shoes" class="rounded-xl" />
+                            </figure>
+                            <div class="card-body p-4">
+                                <div>
+                                    <h2 class="font-semibold text-2xl text-left">Features </h2>
+                                    <ol class="list-decimal ml-5 mt-4">
+                                        <li>lower</li>
+                                        <li>lower</li>
+                                        <li>lower</li>
+                                    </ol>
+                                </div>
+                                <hr>
+                                <div class="card-actions justify-between mt-4 items-end">
+                                    <div>
+                                        <h2 class="font-semibold text-2xl text-left">Features </h2>
+                                        <div class="mt-2">
+                                            <span><i class="fa-regular fa-calendar"></i></span> <span>Date here</span>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-outline btn-primary rounded-full"><i
+                                            class="fa-solid fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- Card section starts here -->
+                <!-- load more btn starts -->
+                <div id="load-mode">
+                    <div class="mt-5 flex justify-center">
+                        <button class="btn btn-primary">See More</button>
+                    </div>
+                </div>
+                <!-- load more btn ends -->
             </div>
         </section>
     </main>
