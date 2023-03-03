@@ -8,8 +8,14 @@ const createCard = (data, showSix, sort) => {
   toolsCard.innerHTML = "";
   if (showSix) {
     data = data.slice(0, 6);
+    document.getElementById("sort-btn").addEventListener("click", () => {
+      loadAllTool(true, true);
+    });
   } else {
     document.getElementById("load-mode").classList.add("hidden");
+    document.getElementById("sort-btn").addEventListener("click", () => {
+      loadAllTool(false, true);
+    });
   }
   data.forEach(tool => {
     const card = document.createElement("div");

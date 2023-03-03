@@ -24,7 +24,7 @@ loadAllTool(true);
 document.getElementById("load-more-btn").addEventListener("click", () => {
   loadAllTool(false);
 });
-//sort card descending
-document.getElementById("sort-btn").addEventListener("click", () => {
-  loadAllTool(false, true);
-});
+//sort card in  descending order
+// document.getElementById("sort-btn").addEventListener("click", () => {
+//   loadAllTool(false, true);
+// });
