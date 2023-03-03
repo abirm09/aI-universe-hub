@@ -70,7 +70,7 @@ const loadModal = data => {
         <span
             class="bg-red-500 px-4 py-2 rounded-lg text-white absolute top-2 right-2 select-none cursor-pointer"><span id="accuracy-number">${
               data.accuracy?.score ? data.accuracy?.score : "no data"
-            }</span> accuracy</span>
+            }</span>% accuracy</span>
     </div>
     <div class="text-center mt-5">
         <h2 class="text-xl font-bold" id="example-input"></h2>
@@ -84,9 +84,9 @@ const loadModal = data => {
     document.getElementById("pricing2").innerHTML = data.pricing[1].price;
     document.getElementById("pricing3").innerHTML = data.pricing[2].price;
   } else {
-    document.getElementById("pricing1").innerHTML = "No data found";
-    document.getElementById("pricing2").innerHTML = "No data found";
-    document.getElementById("pricing3").innerHTML = "No data found";
+    document.getElementById("pricing1").innerHTML = "Free of cost";
+    document.getElementById("pricing2").innerHTML = "Free of cost";
+    document.getElementById("pricing3").innerHTML = "Free of cost";
   }
 
   //create integrations
@@ -115,8 +115,8 @@ const loadModal = data => {
       data.input_output_examples[0].output;
   } else {
     document.getElementById("example-input").innerHTML =
-      "No example input found";
+      "Can you give any example?";
     document.getElementById("example-output").innerHTML =
-      "No example output found";
+      "No! Not Yet! Take a break!!!";
   }
 };
