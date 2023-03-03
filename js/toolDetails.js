@@ -13,7 +13,8 @@ const toolDetails = async id => {
 //load modal function
 const loadModal = data => {
   const modalBody = document.getElementById("modal-body");
-  console.log(data.integrations);
+  modalBody.innerHTML = "";
+  console.log(data);
   modalBody.innerHTML = `
   <div class=" bg-red-50 border-2 border-red-300 p-5 rounded-lg">
     <div>
@@ -25,27 +26,30 @@ const loadModal = data => {
         <div class="bg-white p-2 text-center rounded-md ">
             <h2 class="text-green-800 font-bold">
                 ${
-                  data.pricing[0]?.price
-                    ? data.pricing[0]?.price
-                    : "No data found"
+                  // data.pricing[0]?.price
+                  //   ? data.pricing[0]?.price
+                  //   : "No data found"
+                  ""
                 }
             </h2>
         </div>
         <div class="bg-white p-2 text-center rounded-md">
             <h2 class="text-orange-400 font-bold">
                 ${
-                  data.pricing[1]?.price
-                    ? data.pricing[1]?.price
-                    : "No data found"
+                  // data.pricing[1]?.price
+                  //   ? data.pricing[1]?.price
+                  //   : "No data found"
+                  ""
                 }
             </h2>
         </div>
         <div class="bg-white p-2 text-center rounded-md">
             <h2 class="text-red-500 font-bold">
                 ${
-                  data.pricing[2]?.price
-                    ? data.pricing[2]?.price
-                    : "No data found"
+                  // data.pricing[2]?.price
+                  //   ? data.pricing[2]?.price
+                  //   : "No data found"
+                  ""
                 }
             </h2>
         </div>
@@ -81,9 +85,11 @@ const loadModal = data => {
 </div>
 <div class=" border-2 border-gray-200 p-5 rounded-lg">
     <div class="relative">
-        <img src="https://i.ytimg.com/vi/_LZzfpjepoY/maxresdefault.jpg" class="rounded-xl">
+        <img src="${data.image_link[0]}" class="rounded-xl">
         <span
-            class="bg-red-500 px-4 py-2 rounded-lg text-white absolute top-2 right-2 select-none cursor-pointer">accuracy</span>
+            class="bg-red-500 px-4 py-2 rounded-lg text-white absolute top-2 right-2 select-none cursor-pointer"><span>${
+              data.accuracy?.score ? data.accuracy?.score : "No"
+            }</span> accuracy</span>
     </div>
     <div class="text-center mt-5">
         <h2 class="text-xl font-bold">Lorem ipsum dolor sit amet.</h2>
@@ -94,9 +100,11 @@ const loadModal = data => {
 </div>
   `;
   //create integrations
-  data.integrations.forEach(integration => {
-    const integrationList = document.createElement("li");
-    integrationList.innerHTML = `${integration}`;
-    document.getElementById("integration-list").appendChild(integrationList);
-  });
+  if (data.integrations !== null) {
+    data.integrations.forEach(integration => {
+      const integrationList = document.createElement("li");
+      integrationList.innerHTML = `${integration}`;
+      document.getElementById("integration-list").appendChild(integrationList);
+    });
+  }
 };
