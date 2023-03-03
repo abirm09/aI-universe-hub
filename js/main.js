@@ -1,5 +1,10 @@
 const toolsCard = document.getElementById("tools-card");
-const createCard = (data, showSix) => {
+const createCard = (data, showSix, sort) => {
+  if (sort) {
+    data.sort((a, b) => {
+      return new Date(b.published_in) - new Date(a.published_in);
+    });
+  }
   toolsCard.innerHTML = "";
   if (showSix) {
     data = data.slice(0, 6);

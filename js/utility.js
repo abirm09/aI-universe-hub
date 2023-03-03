@@ -7,14 +7,14 @@ const spinner = spinnerShow => {
   }
 };
 // load all data or six
-const loadAllTool = async showSix => {
+const loadAllTool = async (showSix, sort) => {
   const url = `https://openapi.programming-hero.com/api/ai/tools`;
   spinner(true);
   try {
     const fetchData = await fetch(url);
     const response = await fetchData.json();
     const data = response.data.tools;
-    createCard(data, showSix);
+    createCard(data, showSix, sort);
   } catch (error) {
     console.log(error);
   }
@@ -24,4 +24,8 @@ loadAllTool(true);
 document.getElementById("load-more-btn").addEventListener("click", () => {
   loadAllTool(false);
   document.getElementById("load-mode").classList.add("hidden");
+});
+//sort card descending
+document.getElementById("sort-btn").addEventListener("click", () => {
+  loadAllTool(false, true);
 });
