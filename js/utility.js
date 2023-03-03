@@ -23,7 +23,6 @@ loadAllTool(true);
 //show all card
 document.getElementById("load-more-btn").addEventListener("click", () => {
   loadAllTool(false);
-  document.getElementById("load-mode").classList.add("hidden");
 });
 //sort card descending
 document.getElementById("sort-btn").addEventListener("click", () => {
