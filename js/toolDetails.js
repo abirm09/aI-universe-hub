@@ -14,7 +14,7 @@ const toolDetails = async id => {
 const loadModal = data => {
   const modalBody = document.getElementById("modal-body");
   modalBody.innerHTML = "";
-  console.log(data);
+  console.log(data.input_output_examples);
   modalBody.innerHTML = `
   <div class=" bg-red-50 border-2 border-red-300 p-5 rounded-lg">
     <div>
@@ -24,33 +24,15 @@ const loadModal = data => {
     </div>
     <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-5 justify-center items-center">
         <div class="bg-white p-2 text-center rounded-md ">
-            <h2 class="text-green-800 font-bold">
-                ${
-                  // data.pricing[0]?.price
-                  //   ? data.pricing[0]?.price
-                  //   : "No data found"
-                  ""
-                }
+            <h2 class="text-green-800 font-bold" id="pricing1">
+            </h2>
+        </div>
+        <div class="bg-white p-2 text-center rounded-md" >
+            <h2 class="text-orange-400 font-bold" id="pricing2">
             </h2>
         </div>
         <div class="bg-white p-2 text-center rounded-md">
-            <h2 class="text-orange-400 font-bold">
-                ${
-                  // data.pricing[1]?.price
-                  //   ? data.pricing[1]?.price
-                  //   : "No data found"
-                  ""
-                }
-            </h2>
-        </div>
-        <div class="bg-white p-2 text-center rounded-md">
-            <h2 class="text-red-500 font-bold">
-                ${
-                  // data.pricing[2]?.price
-                  //   ? data.pricing[2]?.price
-                  //   : "No data found"
-                  ""
-                }
+            <h2 class="text-red-500 font-bold" id="pricing3">
             </h2>
         </div>
     </div>
@@ -87,24 +69,46 @@ const loadModal = data => {
     <div class="relative">
         <img src="${data.image_link[0]}" class="rounded-xl">
         <span
-            class="bg-red-500 px-4 py-2 rounded-lg text-white absolute top-2 right-2 select-none cursor-pointer"><span>${
+            class="bg-red-500 px-4 py-2 rounded-lg text-white absolute top-2 right-2 select-none cursor-pointer"><span id="accuracy-number">${
               data.accuracy?.score ? data.accuracy?.score : "No"
             }</span> accuracy</span>
     </div>
     <div class="text-center mt-5">
-        <h2 class="text-xl font-bold">Lorem ipsum dolor sit amet.</h2>
-        <p class="mt-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio nostrum illum
-            recusandae
-            obcaecati libero earum.</p>
+        <h2 class="text-xl font-bold" id="example-input"></h2>
+        <p class="mt-3" id="example-output"></p>
     </div>
 </div>
   `;
-  //create integrations
+  //pricing
+  if (data.pricing !== null) {
+    document.getElementById("pricing1").innerHTML = data.pricing[0].price;
+    document.getElementById("pricing2").innerHTML = data.pricing[1].price;
+    document.getElementById("pricing3").innerHTML = data.pricing[2].price;
+  } else {
+    document.getElementById("pricing1").innerHTML = "No data found";
+    document.getElementById("pricing2").innerHTML = "No data found";
+    document.getElementById("pricing3").innerHTML = "No data found";
+  }
+  //example
+  if (data.input_output_examples !== null) {
+    document.getElementById("example-input").innerHTML =
+      data.input_output_examples[0].input;
+    document.getElementById("example-output").innerHTML =
+      data.input_output_examples[0].output;
+  } else {
+    document.getElementById("example-input").innerHTML =
+      "No example input found";
+    document.getElementById("example-output").innerHTML =
+      "No example output found";
+  }
   if (data.integrations !== null) {
+    //create integrations
     data.integrations.forEach(integration => {
       const integrationList = document.createElement("li");
       integrationList.innerHTML = `${integration}`;
       document.getElementById("integration-list").appendChild(integrationList);
     });
+  } else {
+    document.getElementById("integration-list").innerHTML = `No data found`;
   }
 };
