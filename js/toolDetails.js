@@ -38,7 +38,7 @@ const loadModal = data => {
     <div class="grid grid-cols-1  md:grid-cols-2 gap-5 mt-5">
         <div>
             <h2 class="font-bold text-2xl">Features</h2>
-            <ul class="list-disc ml-6">
+            <ul class="list-disc ml-6" id="feature-list">
                 <li>${
                   data.features["1"]?.feature_name
                     ? data.features["1"]?.feature_name
@@ -52,6 +52,11 @@ const loadModal = data => {
                 <li>${
                   data.features["3"]?.feature_name
                     ? data.features["3"]?.feature_name
+                    : "No data found"
+                }</li>
+                <li>${
+                  data.features["4"]?.feature_name
+                    ? data.features["4"]?.feature_name
                     : "No data found"
                 }</li>
             </ul>
@@ -87,6 +92,13 @@ const loadModal = data => {
     document.getElementById("pricing1").innerHTML = "Free of cost";
     document.getElementById("pricing2").innerHTML = "Free of cost";
     document.getElementById("pricing3").innerHTML = "Free of cost";
+  }
+  //handle feature
+  const featureList = document.querySelectorAll("#feature-list li");
+  for (let feature of featureList) {
+    if (feature.innerText == "No data found") {
+      feature.parentElement.removeChild(feature);
+    }
   }
 
   //create integrations
