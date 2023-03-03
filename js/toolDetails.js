@@ -14,7 +14,6 @@ const toolDetails = async id => {
 const loadModal = data => {
   const modalBody = document.getElementById("modal-body");
   modalBody.innerHTML = "";
-  console.log(data.input_output_examples);
   modalBody.innerHTML = `
   <div class=" bg-red-50 border-2 border-red-300 p-5 rounded-lg">
     <div>
@@ -70,7 +69,7 @@ const loadModal = data => {
         <img src="${data.image_link[0]}" class="rounded-xl">
         <span
             class="bg-red-500 px-4 py-2 rounded-lg text-white absolute top-2 right-2 select-none cursor-pointer"><span id="accuracy-number">${
-              data.accuracy?.score ? data.accuracy?.score : "No"
+              data.accuracy?.score ? data.accuracy?.score : "no data"
             }</span> accuracy</span>
     </div>
     <div class="text-center mt-5">
@@ -89,8 +88,27 @@ const loadModal = data => {
     document.getElementById("pricing2").innerHTML = "No data found";
     document.getElementById("pricing3").innerHTML = "No data found";
   }
-  //example
+
+  //create integrations
+  if (data.integrations !== null) {
+    data.integrations.forEach(integration => {
+      const integrationList = document.createElement("li");
+      integrationList.innerHTML = `${integration}`;
+      document.getElementById("integration-list").appendChild(integrationList);
+    });
+  } else {
+    document.getElementById("integration-list").innerHTML = `No data found`;
+  }
+
+  //accuracy
+  const accuracyNumber = document.getElementById("accuracy-number");
+  if (accuracyNumber.innerText == "no data") {
+    accuracyNumber.parentElement.classList.add("hidden");
+  } else {
+    accuracyNumber.parentElement.classList.remove("hidden");
+  }
   if (data.input_output_examples !== null) {
+    //example
     document.getElementById("example-input").innerHTML =
       data.input_output_examples[0].input;
     document.getElementById("example-output").innerHTML =
@@ -100,15 +118,5 @@ const loadModal = data => {
       "No example input found";
     document.getElementById("example-output").innerHTML =
       "No example output found";
-  }
-  if (data.integrations !== null) {
-    //create integrations
-    data.integrations.forEach(integration => {
-      const integrationList = document.createElement("li");
-      integrationList.innerHTML = `${integration}`;
-      document.getElementById("integration-list").appendChild(integrationList);
-    });
-  } else {
-    document.getElementById("integration-list").innerHTML = `No data found`;
   }
 };
