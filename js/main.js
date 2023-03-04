@@ -19,6 +19,7 @@ const createCard = (data, showSix, sort) => {
   }
   data.forEach(tool => {
     const card = document.createElement("div");
+    console.log(tool);
     card.classList.add(
       "card",
       "w-80",
@@ -68,6 +69,14 @@ const createCard = (data, showSix, sort) => {
     </div>
     `;
     toolsCard.appendChild(card);
+    //feature
+    const firstFeatures = document.querySelectorAll("#first-feature li");
+    for (let firstFeature of firstFeatures) {
+      if (firstFeature.innerHTML == "No data Found") {
+        firstFeature.parentElement.removeChild(firstFeature);
+      }
+    }
+    //spinner
     spinner(false);
   });
 };
