@@ -36,7 +36,7 @@ const createCard = (data, showSix, sort) => {
     <div class="card-body p-4">
         <div>
             <h2 class="font-semibold text-2xl text-left">Features </h2>
-            <ol class="list-decimal ml-5 mt-4">
+            <ol class="list-decimal ml-5 mt-4" id="first-feature">
                 <li>${
                   tool.features[0] ? tool.features[0] : "No data Found"
                 }</li>

@@ -39,26 +39,7 @@ const loadModal = data => {
         <div>
             <h2 class="font-bold text-2xl">Features</h2>
             <ul class="list-disc ml-6" id="feature-list">
-                <li>${
-                  data.features["1"]?.feature_name
-                    ? data.features["1"]?.feature_name
-                    : "No data found"
-                }</li>
-                <li>${
-                  data.features["2"]?.feature_name
-                    ? data.features["2"]?.feature_name
-                    : "No data found"
-                }</li>
-                <li>${
-                  data.features["3"]?.feature_name
-                    ? data.features["3"]?.feature_name
-                    : "No data found"
-                }</li>
-                <li>${
-                  data.features["4"]?.feature_name
-                    ? data.features["4"]?.feature_name
-                    : "No data found"
-                }</li>
+                
             </ul>
         </div>
         <div>
@@ -74,7 +55,9 @@ const loadModal = data => {
         <img src="${data.image_link[0]}" class="rounded-xl">
         <span
             class="bg-red-500 px-4 py-2 rounded-lg text-white absolute top-2 right-2 select-none cursor-pointer"><span id="accuracy-number">${
-              data.accuracy?.score ? data.accuracy?.score : "no data"
+              data.accuracy?.score * 100
+                ? data.accuracy?.score * 100
+                : "no data"
             }</span>% accuracy</span>
     </div>
     <div class="text-center mt-5">
@@ -94,13 +77,12 @@ const loadModal = data => {
     document.getElementById("pricing3").innerHTML = "Free of cost";
   }
   //handle feature
-  const featureList = document.querySelectorAll("#feature-list li");
-  for (let feature of featureList) {
-    if (feature.innerText == "No data found") {
-      feature.parentElement.removeChild(feature);
-    }
+  const featureList = document.getElementById("feature-list");
+  for (let feature in data.features) {
+    const newList = document.createElement("li");
+    newList.innerText = data.features[feature].feature_name;
+    featureList.appendChild(newList);
   }
-
   //create integrations
   if (data.integrations !== null) {
     data.integrations.forEach(integration => {
